@@ -1,1 +1,1 @@
-import '/components/api.js'
+import './components/modulesapi.js'
