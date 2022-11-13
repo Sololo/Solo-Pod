@@ -21,18 +21,21 @@ class Component extends LitElement {
 
     render() {
         switch (this.phase) {
-            case 'loading': 
+            case 'loading':
                 return html`<div>Loading...</div>`
 
-            case 'error': 
+            case 'error':
                 return html`<div>Something went wrong!</div>`
 
-            case 'list': 
+            case 'list':
                 return html`<podcast-view-list></podcast-view-list>`
 
-            case 'single': 
+            case 'single':
                 return html`<podcast-view-single></podcast-view-single>`
-                
+
+            case 'seasons':
+                return html`<podcast-view-seasons></podcast-view-seasons>`
+
             default: throw new Error('Invalid phase')
         }
     }

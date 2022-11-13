@@ -93,17 +93,18 @@ class Component extends LitElement {
             throw new Error('Invalid sorting')
          })
 
-        const list = sortedPreviews.map(({ title, id, image, updated, genres, episodes }) => {
+        const list = sortedPreviews.map(({ title, id, image, updated, genres, seasons }) => {
             const date = new Date(updated)
             const day = date.getDate()
             const month = MONTHS[date.getMonth() - 1]
             const year = date.getFullYear()
 
             const clickHandler = () => store.loadSingle(id)
+            const clickHandler1 = () => store.loadSeasons(id)
 
             return html`
                     <div class="ds-i">
-                        <h2>${title}</h2><h3>(${episodes})</h3>
+                        <h2>${title}</h2><button><h3 @click="${clickHandler1}"> Seasons: ${seasons}</h3></button>
                         <img src="${image}" width="400" height="400" @click="${clickHandler}">
                         <div>Updated: ${day} ${month} ${year}</div>
                         <p class="genre" >Genres: ${genres}</p>
