@@ -37,7 +37,7 @@ export type state = {
     phase: phase
     previews: preview[]
     single: null | show
-    seasons: season[]
+    seasons: season[] & show
 }
 
 export type subscription = (state: state) => void

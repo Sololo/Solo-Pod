@@ -23,6 +23,7 @@ class Store {
         if (this.state.previews.length > 0) {
             return this.update({
                 single: null,
+                seasons: null,
                 phase: 'list'
             })
         }
@@ -32,6 +33,7 @@ class Store {
         if (!response.ok) {
             return this.update({
                 single: null,
+                seasons: null,
                 phase: 'error'
             })
         }
@@ -40,6 +42,7 @@ class Store {
 
         return this.update({
             single: null,
+            seasons: null,
             phase: 'list',
             previews: data
         })
