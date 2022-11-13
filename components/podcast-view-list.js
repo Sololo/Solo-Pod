@@ -38,8 +38,33 @@ class Component extends LitElement {
     disconnectedCallback() { this.disconnectStore() }
 
     static styles = css`
-        li {
-            border: 1px solid var(--primary-blue);
+        .ds-i {
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+        }
+
+        .tl{
+            display: flex;
+            align-content: flex-start;
+        }
+
+        div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h2 {
+            flex: 1 1 0%;
+            margin: 0;
+
+        }
+
+        div .genre {
+            flex: 1 1 0%;
         }
     `;
 
@@ -68,7 +93,7 @@ class Component extends LitElement {
             throw new Error('Invalid sorting')
          })
 
-        const list = sortedPreviews.map(({ title, id, updated }) => {
+        const list = sortedPreviews.map(({ title, id, image, updated, genres, episodes }) => {
             const date = new Date(updated)
             const day = date.getDate()
             const month = MONTHS[date.getMonth() - 1]
@@ -77,19 +102,19 @@ class Component extends LitElement {
             const clickHandler = () => store.loadSingle(id)
 
             return html`
-                <li>
-                    <button @click="${clickHandler}">
-                        ${title}
-                    </button>
-                    <div>Updated: ${day} ${month} ${year}</div>
-                </li>
+                    <div class="ds-i">
+                        <h2>${title}</h2><h3>(${episodes})</h3>
+                        <img src="${image}" width="400" height="400" @click="${clickHandler}">
+                        <div>Updated: ${day} ${month} ${year}</div>
+                        <p class="genre" >Genres: ${genres}</p>
+                    </div> 
             `
         })
 
         return html`
             <h1>Podcast List</h1>
-            <podcast-controls></podcast-controls>
-            ${list.length > 0 ? html`<ul>${list}</ul>` : html`<div>No matches</div>`}
+                <podcast-controls></podcast-controls>
+            ${list.length > 0 ? html`<div>${list}</div>` : html`<div>No matches</div>`}
         `
     }
 }

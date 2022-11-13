@@ -5,6 +5,7 @@ export type preview = {
     image: string
     genres: string[]
     updated: string
+    episodes: episode[]
 }
 
 export type episode = {

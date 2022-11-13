@@ -23,6 +23,7 @@ class Component extends LitElement {
         h1 {
             color: purple;
         }
+
         img {
             width: 100px;
             height: 100px;

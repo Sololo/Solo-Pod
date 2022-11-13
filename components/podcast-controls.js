@@ -35,6 +35,7 @@ class Component extends LitElement {
                     <span>Search</span>
                     <input @input="${inputHandler}" value="${this.search}">
                 </label>
+
                 <label>
                     Sorting
                     <select @change="${changeHandler}">

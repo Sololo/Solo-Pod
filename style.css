@@ -1,22 +1,11 @@
+:root {
+    --primary-blue: #1D84B5
+}
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: white;
-}
-
-div{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.seasonl-d{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    background: #EEE;
 }
