@@ -13,6 +13,7 @@ class Component extends LitElement {
 
         this.disconnectStore = connect((state) => {
             if (this.seasons === state.seasons) return
+            this.seasons = state.seasons
         })
     }
 
