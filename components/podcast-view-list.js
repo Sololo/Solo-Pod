@@ -105,7 +105,7 @@ class Component extends LitElement {
             return html`
                     <div class="ds-i">
                         <h2>${title}</h2><button><h3 @click="${clickHandler}"> Seasons: ${seasons}</h3></button>
-                        <img src="${image}" width="400" height="400" @click="${clickHandler1}">
+                        <img src="${image}" width="300" height="300" @click="${clickHandler1}">
                         <div>Updated: ${day} ${month} ${year}</div>
                         <p class="genre" >Genres: ${genres}</p>
                     </div> 
