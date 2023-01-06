@@ -66,6 +66,10 @@ class Component extends LitElement {
         div .genre {
             flex: 1 1 0%;
         }
+
+        podcast-controls{
+            position: fixed;
+        }
     `;
 
     render() {
@@ -93,18 +97,22 @@ class Component extends LitElement {
             throw new Error('Invalid sorting')
          })
 
-        const list = sortedPreviews.map(({ title, id, image, updated, genres, seasons }) => {
+        const list = sortedPreviews.map(({ title, id, image, updated, genres, episode , seasons }) => {
             const date = new Date(updated)
             const day = date.getDate()
             const month = MONTHS[date.getMonth() - 1]
             const year = date.getFullYear()
-
+            
             const clickHandler = () => store.loadSingle(id)
             const clickHandler1 = () => store.loadSeasons(id)
 
             return html`
                     <div class="ds-i">
-                        <h2>${title}</h2><button><h3 @click="${clickHandler}"> Seasons: ${seasons}</h3></button>
+                        <h2>${title}</h2>
+                        <button>
+                            <h3 @click="${clickHandler}"> Seasons: ${seasons} </h3>
+                        </button>
+                        <h3> Episodes: ${episode} </h3>
                         <img src="${image}" width="300" height="300" @click="${clickHandler1}">
                         <div>Updated: ${day} ${month} ${year}</div>
                         <p class="genre" >Genres: ${genres}</p>
@@ -113,8 +121,7 @@ class Component extends LitElement {
         })
 
         return html`
-            <h1>Podcast List</h1>
-                <podcast-controls></podcast-controls>
+            <podcast-controls></podcast-controls>
             ${list.length > 0 ? html`<div>${list}</div>` : html`<div>No matches</div>`}
         `
     }

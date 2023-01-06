@@ -5,7 +5,7 @@ class Component extends LitElement {
     static get properties() {
         return {
             single: { state: true },
-        }
+        };
     }
 
     constructor() {
@@ -37,8 +37,11 @@ class Component extends LitElement {
     render() {
         /**
          * @type {import('../types').show}
+         * @type {import('../types').episode}
          */
         const show = this.single
+        const episode = this.episode
+
         if (!show) {
             return html`<div></div>`
         }
@@ -47,12 +50,14 @@ class Component extends LitElement {
 
         const seasons = show.seasons.map(({ episodes, title }) => {
             return html`
-                <div>
+    
                     <strong>${title}</strong>
-                    ${episodes.map(({ id , file, title: innerTitle }) => {
+                    ${episodes.map(({ id, episode, file, title: innerTitle }) => {
                         return html`
                             <div>
+                                <h3> Episodes: ${episode} </h3>
                                 <div>${innerTitle}</div>
+                                
                                 <audio controls>
                                     <source src="https://file-examples.com/storage/fe8c7eef0c6364f6c9504cc/2017/11/file_example_MP3_700KB.mp3" type="audio/mp3">
                                 </audio>
@@ -61,15 +66,14 @@ class Component extends LitElement {
                             </div>
                         `
                     })}
-                </div>
             `
         })
 
         return html`
             <button @click="${backHandler}">👈 BACK</button>
             <h1>${show.title || ''}</h1>
-            <img src="${show.image}">
-            ${seasons}
+            <img src="${show.image}">          
+            ${seasons}        
         `
     }
 }

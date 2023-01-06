@@ -3,6 +3,7 @@
 * @property {string} id
 * @property {string} title
 * @property {number} seasons
+* @property {number} episode
 * @property {string} image
 * @property {string[]} genres
 * @property {string} updated
