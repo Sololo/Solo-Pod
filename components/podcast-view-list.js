@@ -69,6 +69,9 @@ class Component extends LitElement {
 
         podcast-controls{
             position: fixed;
+            display: flex;
+            flex-direction: row;
+            flex-grow: 5;
         }
     `;
 

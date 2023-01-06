@@ -34,12 +34,21 @@ class Component extends LitElement {
     * {
       box-sizing: border-box;
     }
-    
+
     div {
       display: flex;
-      justify-content: space-around;
-      flex-grow: 5;
+      justify-content: space-between;
+      flex-grow: 1;
       margin: 0.5%;
+      color: whitesmoke;
+    }
+
+    p{
+        margin-bottom: 0;
+    }
+
+    #white{
+        color: white;
     }
   `;
 
@@ -56,13 +65,14 @@ class Component extends LitElement {
       <div>
         <div>
           <label>
-            <span>Search</span>
-            <input @input="${inputHandler}" value="${this.search}" />
+            <span><p>Search</p></span>
+                <input @input="${inputHandler}" value="${this.search}" />
+            </i>
           </label>
         </div>
         <div>
           <label>
-            Sorting
+            <p>Sorting</p>
             <select @change="${changeHandler}">
               <option value="a-z" .selected="${this.sorting === "a-z"}">
                 A - Z

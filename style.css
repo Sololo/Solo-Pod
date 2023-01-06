@@ -125,3 +125,7 @@ header.black-bg {
   justify-content: center;
   align-content: space-between;
 }
+
+#white{
+    color: white;
+}
