@@ -121,7 +121,6 @@ class Component extends LitElement {
         })
 
         return html`
-            <podcast-controls></podcast-controls>
             ${list.length > 0 ? html`<div>${list}</div>` : html`<div>No matches</div>`}
         `
     }
