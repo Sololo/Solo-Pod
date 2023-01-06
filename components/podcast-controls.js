@@ -23,7 +23,8 @@ class Component extends LitElement {
     static styles = css`
         div{
             display: flex;
-            
+            justify-content: space-around;
+
         }
     
     `
@@ -39,20 +40,23 @@ class Component extends LitElement {
 
         return html`
             <div>
-                <label>
-                    <span>Search</span>
-                    <input @input="${inputHandler}" value="${this.search}">
-                </label>
-
-                <label>
-                    Sorting
-                    <select @change="${changeHandler}">
-                        <option value="a-z" .selected="${this.sorting === 'a-z'}">A - Z</option>
-                        <option value="z-a" .selected="${this.sorting === 'z-a'}">Z - A</option>
-                        <option value="oldest-latest" .selected="${this.sorting === 'oldest-latest'}">Oldest - Latest</option>
-                        <option value="latest-oldest" .selected="${this.sorting === 'latest-oldest'}">Latest - Oldest</option>
-                    </select>
-                </label>
+                <div>
+                    <label>
+                        <span>Search</span>
+                        <input @input="${inputHandler}" value="${this.search}">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Sorting
+                        <select @change="${changeHandler}">
+                            <option value="a-z" .selected="${this.sorting === 'a-z'}">A - Z</option>
+                            <option value="z-a" .selected="${this.sorting === 'z-a'}">Z - A</option>
+                            <option value="oldest-latest" .selected="${this.sorting === 'oldest-latest'}">Oldest - Latest</option>
+                            <option value="latest-oldest" .selected="${this.sorting === 'latest-oldest'}">Latest - Oldest</option>
+                        </select>
+                    </label>
+                </div>
             </div>
         `
     }

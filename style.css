@@ -19,6 +19,12 @@ body {
     margin: 80px 0 0 0;
 }
 
+.you{
+    display: flex;
+    align-items: center;
+    color: white;
+
+}
 /* Header Css */
 header {
     background-color: transparent;
@@ -34,6 +40,9 @@ header.black-bg{
     background-color: rgb(20, 20, 20)!important;
 }
 
+#header{
+    background-color: rgb(28, 28, 50); 
+}
 footer {
   background-color: rgb(28, 28, 50);
   color: white;
@@ -43,7 +52,7 @@ footer {
   height: relative;
 }
 header.black-bg {
-  background-color: rgb(20, 20, 20);
+    background-color: rgb(28, 28, 50);
 }
 
 .header-cont {
@@ -60,7 +69,7 @@ header.black-bg {
 }
 
 .header-brand {
-  max-width: 110px;
+  max-width: 80px;
 }
 
 .main-nav {
@@ -86,6 +95,8 @@ header.black-bg {
   margin-right: 22px;
   cursor: pointer;
 }
+
+
 
 .right-cont svg {
   color: white;
